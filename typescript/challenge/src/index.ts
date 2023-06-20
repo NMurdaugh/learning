@@ -44,3 +44,18 @@ console.log(answer(numericArray))
 
 
 // question 2
+const answer2 = (array: number[], num: number) => {
+    for (const n of array) {
+        const testNum = num - n;
+        // const testArray: number[] = array.slice(array.indexOf(n)); // prevents error if ex: [1, 3, 5], 6
+        array.slice(array.indexOf(n));
+        if (array.includes(testNum)) {
+            const answerArray: number[] = [n, array[array.indexOf(testNum)]];
+            return answerArray 
+        }
+    }
+    return "Factors not present"
+}
+
+console.log(answer2([5, 4, 9, 3], 7));
+console.log(answer2([5, 4, 9, 3], 6));

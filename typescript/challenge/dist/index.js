@@ -22,4 +22,17 @@ const answer = (array) => {
     return finalArray;
 };
 console.log(answer(numericArray));
+const answer2 = (array, num) => {
+    for (const n of array) {
+        const testNum = num - n;
+        array.slice(array.indexOf(n));
+        if (array.includes(testNum)) {
+            const answerArray = [n, array[array.indexOf(testNum)]];
+            return answerArray;
+        }
+    }
+    return "Factors not present";
+};
+console.log(answer2([5, 4, 9, 3], 7));
+console.log(answer2([5, 4, 9, 3], 6));
 //# sourceMappingURL=index.js.map
