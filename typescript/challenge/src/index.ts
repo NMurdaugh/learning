@@ -11,7 +11,19 @@ const answer = (array: any[]) => {
     interface singleNumbersAndArrays {
         [key: number]: number | number[]
     }
-    let finalNumbers: singleNumbersAndArrays = {...counts}
+    let finalNumbers: singleNumbersAndArrays = {...counts};
+    for ( let [key, value] of Object.entries(finalNumbers)) {
+        // key = parseInt(key)
+        if (value > 1) {
+            let arr: any[] = [];
+            for (let step = 0; step < value; step++) {
+                arr.push(key)
+            };
+            for (let num of arr) num = parseInt(num);
+            value = arr
+        }
+    };
+    console.log(finalNumbers)
     // const sortedNumericArray: number[] = array.sort((n1: number, n2: number) => n1 - n2);
     // return sortedNumericArray
 

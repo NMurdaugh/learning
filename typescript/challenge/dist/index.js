@@ -7,6 +7,20 @@ const answer = (array) => {
     }
     ;
     let finalNumbers = { ...counts };
+    for (let [key, value] of Object.entries(finalNumbers)) {
+        if (value > 1) {
+            let arr = [];
+            for (let step = 0; step < value; step++) {
+                arr.push(key);
+            }
+            ;
+            for (let num of arr)
+                num = parseInt(num);
+            value = arr;
+        }
+    }
+    ;
+    console.log(finalNumbers);
 };
 answer(numericArray);
 //# sourceMappingURL=index.js.map
