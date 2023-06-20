@@ -1,6 +1,7 @@
+// question 1
 const numericArray: number[] = [1, 2, 4, 591, 392, 391, 2, 5, 10, 2, 1, 1, 1, 20, 20]
 // output [[1,1,1,1],[2,2,2], 4,5,10,[20,20], 391, 392,591]
-const answer = (array: any[]) => {
+const answer = (array: number[]) => {
     // make obj to store numbers and their counts
     interface frequencyOfNumbers {
         [key: number]: number
@@ -40,3 +41,6 @@ const answer = (array: any[]) => {
 };
 
 console.log(answer(numericArray))
+
+
+// question 2
