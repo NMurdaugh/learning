@@ -6,7 +6,7 @@ const answer = (array: number[]) => {
     interface frequencyOfNumbers {
         [key: number]: number
     }
-    const counts: frequencyOfNumbers = {};
+    const counts: frequencyOfNumbers = {} as frequencyOfNumbers;
 
     // count each different item in the array and make it a key/value pair; will auto sort ascending
     for (const num of array) counts[num] = (counts[num] | 0) + 1;
@@ -45,13 +45,24 @@ console.log(answer(numericArray))
 
 // question 2
 const answer2 = (array: number[], num: number) => {
+    interface numObj {
+        [key: number]: boolean
+    }
+    let factorObj = {} as numObj
+    let testNum: number;
     for (const n of array) {
-        const testNum = num - n;
-        // const testArray: number[] = array.slice(array.indexOf(n)); // prevents error if ex: [1, 3, 5], 6
-        array.slice(array.indexOf(n));
-        if (array.includes(testNum)) {
-            const answerArray: number[] = [n, array[array.indexOf(testNum)]];
-            return answerArray 
+        testNum = num - n;
+        if (factorObj[testNum]) {
+            return true
+            // let factorArray: string[] = [];
+            // for (const factor in factorObj)
+            //     if (factorObj[factor] === true) {
+            //         factorArray.push(factor)
+            //     }
+            // if (factorArray.length % 2) factorArray.pop()
+            // return factorArray
+        } else {
+            factorObj[n] = true
         }
     }
     return "Factors not present"

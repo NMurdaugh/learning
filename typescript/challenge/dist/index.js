@@ -23,12 +23,15 @@ const answer = (array) => {
 };
 console.log(answer(numericArray));
 const answer2 = (array, num) => {
+    let factorObj = {};
+    let testNum;
     for (const n of array) {
-        const testNum = num - n;
-        array.slice(array.indexOf(n));
-        if (array.includes(testNum)) {
-            const answerArray = [n, array[array.indexOf(testNum)]];
-            return answerArray;
+        testNum = num - n;
+        if (factorObj[testNum]) {
+            return true;
+        }
+        else {
+            factorObj[n] = true;
         }
     }
     return "Factors not present";
