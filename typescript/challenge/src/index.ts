@@ -53,14 +53,11 @@ const answer2 = (array: number[], num: number) => {
     for (const n of array) {
         testNum = num - n;
         if (factorObj[testNum]) {
-            return true
-            // let factorArray: string[] = [];
-            // for (const factor in factorObj)
-            //     if (factorObj[factor] === true) {
-            //         factorArray.push(factor)
-            //     }
-            // if (factorArray.length % 2) factorArray.pop()
-            // return factorArray
+            // return true
+            let factorArray: number[] = [];
+            factorArray.push(testNum)
+            factorArray.push(n)
+            return factorArray
         } else {
             factorObj[n] = true
         }

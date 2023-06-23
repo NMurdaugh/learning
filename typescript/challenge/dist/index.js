@@ -28,7 +28,10 @@ const answer2 = (array, num) => {
     for (const n of array) {
         testNum = num - n;
         if (factorObj[testNum]) {
-            return true;
+            let factorArray = [];
+            factorArray.push(testNum);
+            factorArray.push(n);
+            return factorArray;
         }
         else {
             factorObj[n] = true;
