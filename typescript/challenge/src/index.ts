@@ -84,8 +84,19 @@ const rgbHexConvert = (color: string | number[]) => {
             ]
             return rgb;
         case 'object':
-            break;
+            if (color.length != 3) {
+                throw 'Enter a full RGB code.'
+            }
+            let hex: string = ''
+            for (const hue of color) {
+                
+                hex + hue.toString(16).padStart(2, '0')
+            }
+            return hex;
         default:
             throw 'Enter a valid hex code or RGB code.'
     }
 }
+
+// console.log(rgbHexConvert('1502BE'))
+console.log(rgbHexConvert([21, 2, 190]))

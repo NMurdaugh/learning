@@ -41,4 +41,31 @@ const answer2 = (array, num) => {
 };
 console.log(answer2([5, 4, 9, 3], 7));
 console.log(answer2([5, 4, 9, 3], 6));
+const rgbHexConvert = (color) => {
+    switch (typeof (color)) {
+        case 'string':
+            if (color.length != 6) {
+                throw "Enter a full 6 digit hex color code.";
+            }
+            const rgbHex = color.match(/.{1,2}/g);
+            const rgb = [
+                parseInt(rgbHex[0], 16),
+                parseInt(rgbHex[1], 16),
+                parseInt(rgbHex[2], 16)
+            ];
+            return rgb;
+        case 'object':
+            if (color.length != 3) {
+                throw 'Enter a full RGB code.';
+            }
+            let hex = '';
+            for (const hue of color) {
+                hex + hue.toString(16).padStart(2, '0');
+            }
+            return hex;
+        default:
+            throw 'Enter a valid hex code or RGB code.';
+    }
+};
+console.log(rgbHexConvert([21, 2, 190]));
 //# sourceMappingURL=index.js.map
