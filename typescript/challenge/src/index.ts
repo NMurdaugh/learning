@@ -67,3 +67,25 @@ const answer2 = (array: number[], num: number) => {
 
 console.log(answer2([5, 4, 9, 3], 7));
 console.log(answer2([5, 4, 9, 3], 6));
+
+
+// question 3
+const rgbHexConvert = (color: string | number[]) => {
+    switch (typeof(color)) {
+        case 'string':
+            if (color.length != 6) {
+                throw "Enter a full 6 digit hex color code."
+            }
+            const rgbHex: RegExpMatchArray | null = color.match(/.{1,2}/g)
+            const rgb: number[] = [
+                parseInt(rgbHex![0], 16),
+                parseInt(rgbHex![1], 16),
+                parseInt(rgbHex![2], 16)
+            ]
+            return rgb;
+        case 'object':
+            break;
+        default:
+            throw 'Enter a valid hex code or RGB code.'
+    }
+}
