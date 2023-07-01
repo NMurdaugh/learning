@@ -1,6 +1,6 @@
 import Card from './Card.tsx'
 
-export type KittenObjects = {
+type KittenObjects = {
     kittens: {
         id: number;
         name: string;
@@ -11,23 +11,14 @@ export type KittenObjects = {
 
 
 function CardList({ kittens }: KittenObjects) {
+    const cardComponent = kittens.map((_, i) => {
+        return <Card id={kittens[i].id} name={kittens[i].name } email={kittens[i].email} />
+    })
     return (
         <div>
-            {
-                kittens.map((_, i) => {
-                    return (
-                        <Card
-                            key={kittens[i].id}
-                            id={kittens[i].id}
-                            name={kittens[i].name}
-                            email={kittens[i].email}
-                            />
-                        )       
-                    }
-                )
-            }
+            {cardComponent}
         </div>
-    );  
+    );
 }
 
 export default CardList
