@@ -1,10 +1,11 @@
-function SearchBox() {
+const SearchBox = (searchChange: any) => {
   return (
     <div className="pa2">
       <input
         className="pa3 ba b--green bg-lightest-blue"
         type="search"
         placeholder="Search Kittens"
+        onChange={searchChange}
       />
     </div>
   )

@@ -1,11 +1,11 @@
-type CardProps = {
+type Kitten = {
     id: number;
     name: string;
     username?: string;
     email: string;
 }
 
-function Card({ id, name, email }: CardProps) {
+function Card({ id, name, email }: Kitten) {
     return (
         <div className="tc bg-light-green dib br3 pa3 ma2 grow bw2 shadow-5">
             <img src={`https://robohash.org/${id}?set=set4&size=200x200`} alt="kitten" />
