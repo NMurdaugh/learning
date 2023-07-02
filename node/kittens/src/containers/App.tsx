@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import CardList from "./CardList";
-import SearchBox from './SearchBox';
+import CardList from "../components/CardList";
+import SearchBox from '../components/SearchBox';
+import Scroll from "../components/Scroll";
 
 
 
@@ -27,8 +28,10 @@ function App() {
     (
     <div className="tc">
       <h1 className="f1">Kittens</h1>
-        <SearchBox searchChange={onSearchChange} />
-      <CardList kittens={ filteredKittens } />
+      <SearchBox searchChange={onSearchChange} />
+      <Scroll>
+        <CardList kittens={filteredKittens} />
+      </Scroll>
     </div>
   )
 }
