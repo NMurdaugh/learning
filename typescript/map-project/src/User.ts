@@ -8,11 +8,11 @@ export class User {
   };
 
   constructor() {
-const { person, location } = faker
-this.name = person.firstName();
-this.location = {
-  lat: location.latitude(),
-  lng: location.longitude(),
-};
+    const { person, location } = faker
+    this.name = person.firstName();
+    this.location = {
+      lat: location.latitude(),
+      lng: location.longitude(),
+    };
   };
 }
