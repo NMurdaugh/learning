@@ -1,6 +1,7 @@
 import { faker } from "@faker-js/faker";
+import { CanBeMapped } from "./Map";
 
-export class User {
+export class User implements CanBeMapped {
   name: string;
   location: {
     lat: number;
