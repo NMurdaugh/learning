@@ -1,6 +1,7 @@
 import { faker } from "@faker-js/faker";
+import { CanBeMapped } from "./Map";
 
-export class Company {
+export class Company implements CanBeMapped {
   name: string;
   catchPhrase: string;
   location: {
