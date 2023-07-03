@@ -5,7 +5,7 @@ export class User {
   location: {
     lat: number;
     lng: number;
-  };
+  }
 
   constructor() {
     const { person, location } = faker
@@ -15,4 +15,12 @@ export class User {
       lng: location.longitude(),
     };
   };
+
+  markerContent(): string {
+    return `
+      <div>
+        <h1>User: ${this.name}</h1>
+      </div>
+    `;
+  }
 }

@@ -2,7 +2,8 @@ interface CanBeMapped {
   location: {
     lat: number;
     lng: number;
-  }
+  };
+  markerContent(): string
 }
 
 export class CustomMap {
@@ -19,9 +20,21 @@ export class CustomMap {
   }
 
   addMarker(mappable: CanBeMapped): void {
-    new google.maps.Marker({
+    const marker = new google.maps.Marker({
       map: this.googleMap,
       position: mappable.location
-    })
+    });
+
+    const infoWindow = new google.maps.InfoWindow({
+      content: `
+      <div style="text-align: center;">
+        ${mappable.markerContent()}
+      </div>
+      `
+    });
+
+    marker.addListener('click', () => {
+      infoWindow.open(this.googleMap, marker);
+    });
   }
 }
