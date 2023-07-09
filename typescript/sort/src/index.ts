@@ -15,5 +15,5 @@ linkedList.add(3);
 linkedList.add(45);
 linkedList.add(0);
 linkedList.add(-9);
-linkedList.sort()
-console.log(linkedList);
+linkedList.sort();
+linkedList.print();

@@ -32,7 +32,7 @@ export class LinkedList extends Sorter{
     let length = 1;
     let node = this.head;
     while (node.next) {
-      length+1
+      length++
     }
 
     return length
@@ -49,7 +49,7 @@ export class LinkedList extends Sorter{
       if (counter === index) {
         return node;
       }
-      counter + 1;
+      counter++;
       node = node.next
     }
 
@@ -67,9 +67,10 @@ export class LinkedList extends Sorter{
   swap(leftIndex: number, rightIndex: number): void {
     const leftNode = this.at(leftIndex);
     const rightNode = this.at(rightIndex);
+
     const leftHand = leftNode.data;
     leftNode.data = rightNode.data;
-    rightNode.data = leftHand
+    rightNode.data = leftHand;
   }
 
   print(): void {
