@@ -16,9 +16,9 @@ export class LinkedList extends Sorter{
       return;
     }
 
-    let tail = this.head
+    let tail = this.head;
     while (tail.next) {
-      tail = tail.next
+      tail = tail.next;
     }
 
     tail.next = node;
@@ -26,16 +26,17 @@ export class LinkedList extends Sorter{
 
   get length(): number {
     if (!this.head) {
-      return 0
+      return 0;
     }
 
     let length = 1;
     let node = this.head;
     while (node.next) {
-      length++
+      length++;
+      node = node.next;
     }
 
-    return length
+    return length;
   }
 
   at(index: number): Node {
@@ -49,16 +50,17 @@ export class LinkedList extends Sorter{
       if (counter === index) {
         return node;
       }
+
       counter++;
-      node = node.next
+      node = node.next;
     }
 
-    throw new Error('Index out of bounds')
+    throw new Error('Index out of bounds');
   }
 
   compare(leftIndex: number, rightIndex: number): boolean {
     if (!this.head) {
-      throw new Error('List is empty')
+      throw new Error('List is empty');
     }
 
     return this.at(leftIndex).data > this.at(rightIndex).data;
@@ -80,8 +82,9 @@ export class LinkedList extends Sorter{
 
     let node: Node | null = this.head;
     while (node) {
-      console.log(node.data)
-      node = node.next
+      console.log(node.data);
+      node = node.next;
     }
   }
 }
+
