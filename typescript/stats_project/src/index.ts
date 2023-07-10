@@ -8,22 +8,22 @@ const matches = fs.readFileSync('football.csv', {
   return row.split(',');
 });
 
-const MatchKey = {
-  dateOfMatch: 0,
-  homeTeam: 1,
-  awayTeam: 2,
-  homePoints: 3,
-  awayPoints: 4,
-  matchResults: 5,
-  refereeName: 6,
+enum MatchKey {
+  dateOfMatch = 0,
+  homeTeam = 1,
+  awayTeam = 2,
+  homePoints = 3,
+  awayPoints = 4,
+  matchResults = 5,
+  refereeName = 6,
 }
 
 const { dateOfMatch, homeTeam, awayTeam, homePoints, awayPoints, matchResults, refereeName } = MatchKey
 
-const MatchResultsKey = {
-  homeWin: 'H',
-  awayWin: 'A',
-  draw: 'D',
+enum MatchResultsKey {
+  homeWin = 'H',
+  awayWin = 'A',
+  draw = 'D',
 }
 
 const { homeWin, awayWin, draw } = MatchResultsKey
