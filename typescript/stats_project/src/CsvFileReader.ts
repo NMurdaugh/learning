@@ -1,8 +1,11 @@
 import fs from 'fs';
-import { stringToDate } from './stringToDate';
+import { stringToDate } from './utils';
+import { MatchKey, MatchResultsKey } from './EnumLibrary';
+
+type MatchData = [Date, string, string, number, number, MatchResultsKey, string]
 
 export class CsvFileReader {
-  data: string[][] = [];
+  data: MatchData[] = [];
 
   constructor(public fileName: string) {}
 
@@ -16,14 +19,14 @@ export class CsvFileReader {
       return row.split(',');
       }
     )
-    .map((row: string[]): any => {
+    .map((row: string[]): MatchData => {
       return [
         stringToDate(row[0]),
         row[1],
         row[2],
         parseInt(row[3]),
         parseInt(row[4]),
-        row[5],
+        row[5] as MatchResultsKey,
         row[6],
       ]
     })
