@@ -13,3 +13,5 @@ export enum MatchResultsKey {
   awayWin = 'A',
   draw = 'D',
 }
+
+export type MatchData = [Date, string, string, number, number, MatchResultsKey, string]
