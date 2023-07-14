@@ -1,4 +1,7 @@
 import { MatchData } from './ReferenceLibrary';
+import { WinsAnalyzer } from './analyzers/WinsAnalyzer';
+import { ConsoleReporter } from './reporters/ConsoleReporter';
+
 
 export interface Analyzer {
   run(matches: MatchData[]): string
@@ -11,9 +14,10 @@ export interface OutputTarget {
 export class RunAnalysis {
   constructor(
     public analyzer: Analyzer, 
-    public exportTarget: OutputTarget) {}
+    public reporter: OutputTarget) {}
 
-    analyzeAndPrint() {
-      
+    analyzeAndPrint(matches: MatchData[]): void {
+      const results = this.analyzer.run(matches);
+      this.reporter.print(results);
     }
 }

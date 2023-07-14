@@ -11,11 +11,11 @@ export class WinsAnalyzer implements Analyzer {
   run(matches: MatchData[]):string {    
     let numberOfWins = 0;
 
-    for (let match of matches) {
-      if (match[homeTeam] === teamName && match[matchResults] === homeWin) {
-        numberOfWins++
-      } else if (match[awayTeam] === teamName && match[matchResults] === awayWin) {
-        numberOfWins++
+    for (let match of matches) {      
+      if (match[homeTeam] === this.teamName && match[matchResults] === homeWin) {
+        numberOfWins++;
+      } else if (match[awayTeam] === this.teamName && match[matchResults] === awayWin) {
+        numberOfWins++;
       }
     }
 
