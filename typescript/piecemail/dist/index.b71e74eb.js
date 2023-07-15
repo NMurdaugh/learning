@@ -579,8 +579,13 @@ const user = new (0, _user.User)({});
 user.set({
     name: "Martin"
 });
-console.log(user.get("name"));
-console.log(user.get("age"));
+user.on("change", ()=>{
+    console.log("Change 1");
+});
+user.on("change", ()=>{
+    console.log("Change 2");
+});
+user.trigger("change");
 
 },{"./models/User":"4rcHn"}],"4rcHn":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -588,14 +593,28 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "User", ()=>User);
 class User {
     data;
+    events;
     constructor(data){
         this.data = data;
+        this.events = {};
     }
     get(propName) {
         return this.data[propName];
     }
     set(update) {
         Object.assign(this.data, update);
+    }
+    on(eventName, callback) {
+        const handlers = this.events[eventName] || [];
+        handlers.push(callback);
+        this.events[eventName] = handlers;
+    }
+    trigger(eventName) {
+        const handlers = this.events[eventName];
+        if (!handlers || !handlers.length) return;
+        handlers.forEach((callback)=>{
+            callback();
+        });
     }
 }
 
