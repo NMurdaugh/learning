@@ -574,49 +574,8 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"h7u1C":[function(require,module,exports) {
-var _user = require("./models/User");
-const user = new (0, _user.User)({});
-user.set({
-    name: "Martin"
-});
-user.on("change", ()=>{
-    console.log("Change 1");
-});
-user.on("change", ()=>{
-    console.log("Change 2");
-});
-user.trigger("change");
-
-},{"./models/User":"4rcHn"}],"4rcHn":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "User", ()=>User);
-class User {
-    data;
-    events;
-    constructor(data){
-        this.data = data;
-        this.events = {};
-    }
-    get(propName) {
-        return this.data[propName];
-    }
-    set(update) {
-        Object.assign(this.data, update);
-    }
-    on(eventName, callback) {
-        const handlers = this.events[eventName] || [];
-        handlers.push(callback);
-        this.events[eventName] = handlers;
-    }
-    trigger(eventName) {
-        const handlers = this.events[eventName];
-        if (!handlers || !handlers.length) return;
-        handlers.forEach((callback)=>{
-            callback();
-        });
-    }
-}
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"iGxv9"}],"iGxv9":[function(require,module,exports) {
 exports.interopDefault = function(a) {
@@ -648,6 +607,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["3P05K","h7u1C"], "h7u1C", "parcelRequire94c2")
+},{}]},["3P05K","h7u1C"], "h7u1C", "parcelRequire38b5")
 
 //# sourceMappingURL=index.b71e74eb.js.map
