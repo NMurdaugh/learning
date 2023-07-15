@@ -142,7 +142,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"8mkxg":[function(require,module,exports) {
+})({"3P05K":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -575,9 +575,9 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"h7u1C":[function(require,module,exports) {
 var _user = require("./models/User");
-const user = new (0, _user.User)({
-    name: "Steve",
-    age: 20
+const user = new (0, _user.User)({});
+user.set({
+    name: "Martin"
 });
 console.log(user.get("name"));
 console.log(user.get("age"));
@@ -594,10 +594,12 @@ class User {
     get(propName) {
         return this.data[propName];
     }
-    set(update) {}
+    set(update) {
+        Object.assign(this.data, update);
+    }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"9bp3H"}],"9bp3H":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"iGxv9"}],"iGxv9":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -627,6 +629,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["8mkxg","h7u1C"], "h7u1C", "parcelRequire94c2")
+},{}]},["3P05K","h7u1C"], "h7u1C", "parcelRequire94c2")
 
 //# sourceMappingURL=index.b71e74eb.js.map
