@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:db": "npx json-server -w db.json --no-cors --host 0.0.0.0",
+    "start:db": "npx json-server -w db.json --no-cors true --host 0.0.0.0",
     "start:parcel": "npx parcel index.html"
   },
   "keywords": [],
