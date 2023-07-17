@@ -26,4 +26,11 @@ export class User extends Model<IUserProps> {
       User.buildUser(json)
     );
   }
+
+  setRandomAge = (): void => {
+    const min = Math.min(0);
+    const max = Math.max(101);
+    const randomAge = Math.floor(Math.random() * (max - min) + min);
+    this.set({ age: randomAge });
+  };
 }
