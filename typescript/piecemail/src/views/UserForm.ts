@@ -1,7 +1,7 @@
-import { User } from '../models/User';
+import { IUserProps, User } from '../models/User';
 import { View } from './View';
 
-export class UserForm extends View {
+export class UserForm extends View<User, IUserProps> {
   //stay
   eventsMap(): { [key: string]: () => void } {
     return {
