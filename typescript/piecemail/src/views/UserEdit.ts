@@ -2,6 +2,13 @@ import { IUserProps, User } from '../models/User';
 import { View } from './View';
 
 export class UserEdit extends View<User, IUserProps> {
+  regionsMap(): { [key: string]: string } {
+    return {
+      userShow: '.user-show',
+      userForm: '.user-form',
+    };
+  }
+
   template(): string {
     return `
       <div>
