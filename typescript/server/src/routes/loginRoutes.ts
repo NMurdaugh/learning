@@ -1,9 +1,5 @@
 import { NextFunction, Request, Response, Router } from 'express';
 
-interface requestWithBody extends Request {
-  body: { [key: string]: string | undefined };
-}
-
 function requireAuth(req: Request, res: Response, next: NextFunction): void {
   if (req.session && req.session.loggedIn) {
     next();
@@ -15,22 +11,6 @@ function requireAuth(req: Request, res: Response, next: NextFunction): void {
 }
 
 const router = Router();
-
-router.get('/login', (req: requestWithBody, res: Response) => {
-  res.send(`
-    <form method="POST">
-      <div>
-        <label for="email-input">Email:</label>
-        <input type="text" id="email-input" name="email">
-      </div>
-      <div>
-        <label for="password-input">Password:</label>
-        <input type="password" id="password-input" name="password">
-      </div>
-      <button>Submit</button>
-    </form>
-  `);
-});
 
 router.post('/login', (req: requestWithBody, res: Response) => {
   const { email, password } = req.body;
