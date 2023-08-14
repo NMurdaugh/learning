@@ -7,8 +7,14 @@ interface IPackagesState {
   data: string[];
 }
 
+const initialState = {
+  loading: false,
+  error: null,
+  data: [],
+};
+
 const packagesReducer = (
-  state: IPackagesState,
+  state: IPackagesState = initialState,
   action: Action
 ): IPackagesState => {
   switch (action.type) {
