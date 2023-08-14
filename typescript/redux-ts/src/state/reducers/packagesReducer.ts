@@ -7,7 +7,10 @@ interface IPackagesState {
   data: string[];
 }
 
-const reducer = (state: IPackagesState, action: Action): IPackagesState => {
+const packagesReducer = (
+  state: IPackagesState,
+  action: Action
+): IPackagesState => {
   switch (action.type) {
     case ActionType.SEARCH_PACKAGES:
       return { loading: true, error: null, data: [] };
@@ -20,4 +23,4 @@ const reducer = (state: IPackagesState, action: Action): IPackagesState => {
   }
 };
 
-export default reducer;
+export default packagesReducer;
