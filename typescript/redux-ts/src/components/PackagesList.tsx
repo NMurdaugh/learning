@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import { useActions } from '../hooks/useActions';
 
 const PackagesList = () => {
   const [term, setTerm] = useState('');
-
+  const { searchPackages } = useActions();
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    searchPackages(term);
   };
 
   return (
