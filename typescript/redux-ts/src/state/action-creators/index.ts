@@ -18,7 +18,6 @@ export const searchPackages = (searchTerm: string) => {
           },
         }
       );
-
       const names = data.objects.map((result: any) => {
         return result.package.name;
       });
